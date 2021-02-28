@@ -1,24 +1,26 @@
 package com.ninja.springboot.controller;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ninja.springboot.model.User;
+import com.ninja.springboot.entity.User;
+import com.ninja.springboot.service.UserService;
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
+	
+	private UserService userService;
+	
+	public UserController(UserService theUserService) {
+		userService = theUserService;
+	}
 
-	private List<User> theUsers;
+	/*private List<User> theUsers;
 	
 	@PostConstruct
 	private void loadDate() {
@@ -39,11 +41,11 @@ public class UserController {
 		
 		
 		
-	}
+	}*/
 	
 	@GetMapping("/list")
 		public String listUsers(Model theModel) {
-			
+			List<User> theUsers = userService.findAll();
 			theModel.addAttribute("users", theUsers);
 			return "list-users";
 		}

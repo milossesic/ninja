@@ -26,7 +26,7 @@ create table `user`.`info`(
 `signature`,
 `on_duty`)
 VALUES
-(2,
+(1,
 '2017-11-15',
 'dragan',
 '555666',

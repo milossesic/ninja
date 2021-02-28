@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>user directory</title>
+</head>
+
+<body>
+
+<h3>Employee Directory</h3>
+
+<hr>
+
+<table border="1">
+
+	<thead>
+	<tr>
+	<th>date</th>
+	<th>name</th>
+	<th>phone</th>
+	<th>girl</th>
+	<th>start</th>
+	<th>end</th>
+	<th>euro</th>
+	<th>dinar</th>
+	<th>signature</th>
+	<th>on duty</th>
+	
+	</tr>
+	
+	
+	</thead>
+	<tbody>
+		<tr th:each="tempUser : ${users}">
+		<td th:text="${tempUser.date}"/>
+		<td th:text="${tempUser.name}"/>
+		<td th:text="${tempUser.phone}"/>
+		<td th:text="${tempUser.girl}"/>
+		<td th:text="${tempUser.time_start}"/>
+		<td th:text="${tempUser.time_end}"/>
+		<td th:text="${tempUser.euro}"/>
+		<td th:text="${tempUser.dinar}"/>
+		<td th:text="${tempUser.signature}"/>
+		<td th:text="${tempUser.on_duty}"/>
+		
+		</tr>
+	</tbody>
+
+
+</table>
+
+
+
+
+</body>
+
+</html>

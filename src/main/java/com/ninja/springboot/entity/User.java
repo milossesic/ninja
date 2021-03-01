@@ -11,10 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="info")
@@ -53,7 +51,6 @@ public class User {
 	
 	public User(Date date, String name, int phone, String girl, Time time_start, Time time_end, int euro, int dinar,
 			String signature, String on_duty) {
-		super();
 		this.date = date;
 		this.name = name;
 		this.phone = phone;

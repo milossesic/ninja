@@ -39,12 +39,12 @@
 	</thead>
 	<tbody>
 		<tr th:each="tempUser : ${users}">
-		<td th:text="${tempUser.date}"/>
+		<td th:text="${#dates.format(tempUser.date, 'dd-MM-yyyy')}"/>
 		<td th:text="${tempUser.name}"/>
 		<td th:text="${tempUser.phone}"/>
 		<td th:text="${tempUser.girl}"/>
-		<td th:text="${tempUser.time_start}"/>
-		<td th:text="${tempUser.time_end}"/>
+		<td th:text="${#dates.format(tempUser.time_start, 'HH:mm')}"/>
+		<td th:text="${#dates.format(tempUser.time_end, 'HH:mm')}"/>
 		<td th:text="${tempUser.euro}"/>
 		<td th:text="${tempUser.dinar}"/>
 		<td th:text="${tempUser.signature}"/>

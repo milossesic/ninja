@@ -13,7 +13,7 @@ import com.ninja.springboot.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
-	public List<User> findAllByOrderByNameAsc();
+	public List<User> findAllByOrderByDateDesc();
 
 	public User findByPhone(int phone);
 

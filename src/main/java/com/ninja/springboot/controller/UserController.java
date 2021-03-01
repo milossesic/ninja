@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ninja.springboot.entity.User;
 import com.ninja.springboot.service.UserService;
@@ -35,6 +36,15 @@ public class UserController {
 			theModel.addAttribute("user",theUser);
 			return "users/user-form";
 					
+	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("userId") int theId, Model theModel) {
+		
+		User theUser = userService.findById(theId);
+		theModel.addAttribute(theUser);
+		
+		return "users/user-form";
 	}
 	
 	@PostMapping("/save")

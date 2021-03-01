@@ -25,15 +25,19 @@ public class UserController {
 	
 	@GetMapping("/list")
 		public String listUsers(Model theModel) {
+		
 			List<User> theUsers = userService.findAll();
 			theModel.addAttribute("users", theUsers);
+			
 			return "users/list-users";
 		}
 	
 	@GetMapping("/showFormForAdd")
 		public String showFormForAdd(Model theModel){
+		
 			User theUser = new User();
 			theModel.addAttribute("user",theUser);
+			
 			return "users/user-form";
 					
 	}
@@ -54,6 +58,14 @@ public class UserController {
 		
 		return "redirect:/users/list";
 				
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("userId") int theId) {
+		
+		userService.deleteById(theId);
+		
+		return "redirect:/users/list";
 	}
 	
 }

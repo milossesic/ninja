@@ -16,37 +16,25 @@ import com.ninja.springboot.service.UserServiceREST;
 @RequestMapping("/api")
 public class UserRestController {
 	
-	private UserServiceREST userService;
+	private UserServiceREST userServiceREST;
 	
 	@Autowired
 	public UserRestController(UserServiceREST theUserService) {
-		userService = theUserService;
+		userServiceREST = theUserService;
 	}
 	
 	@GetMapping("/users")
 	public List<User> findAll(){
-		return userService.findAll();
+		return userServiceREST.findAll();
 	}
 	
-	/*@GetMapping("/users/{userId}")
-	public User getUser(@PathVariable int userId) {
-		
-		User theUser = userService.findById(userId);
-		if(theUser == null) {
-			throw new RuntimeException("User not found with "+userId+" id");
-		}
-		return theUser;
-		
-	}*/
-	
-	@SuppressWarnings("unchecked")
 	@GetMapping("/users/{phone}")
 	public List<User> getUserByPhone(@PathVariable int phone) {
-		List<User> theUser = (List<User>) userService.findByPhone(phone);
+		List<User> theUser = (List<User>) userServiceREST.findByPhone(phone);
 		if(theUser == null) {
 			throw new RuntimeException("User not found with "+phone+" phone number");
 		}
-		return (List<User>) theUser;
+		return theUser;
 		
 	}
 

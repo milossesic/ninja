@@ -1,9 +1,20 @@
 package com.ninja.springboot.entity;
 
-import java.sql.Date;
 import java.sql.Time;
+import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="info")
@@ -14,6 +25,8 @@ public class User {
 	@Column(name="id")
 	private int id;
 	@Column(name="date")
+	@DateTimeFormat(pattern="dd-MM-yyyy")
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	@Column(name="name")
 	private String name;
@@ -22,8 +35,10 @@ public class User {
 	@Column(name="girl")
 	private String girl;
 	@Column(name="time_start")
+	//@DateTimeFormat(pattern="HH:mm")
 	private Time time_start;
 	@Column(name="time_end")
+	//@DateTimeFormat(pattern="HH:mm")
 	private Time time_end;
 	@Column(name="euro")
 	private int euro;

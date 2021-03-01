@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lan="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<title>Save User</title>
+</head>
+
+<body>
+<div class="container">
+
+<h3>User Directory</h3>
+<hr>
+<p class="h4 mb-4">Save New Event</p>
+
+<form action ="#" th:action="@{/users/save}" th:object="${user}" method="POST">
+
+<!-- add hidden form field to handle update -->
+<input type="hidden" th:field="*{id}"/>
+<input type="text" th:field="*{date}" class="form-control mb-4 col-4" placeholder="Date">
+<input type="text" th:field="*{name}" class="form-control mb-4 col-4" placeholder="Name">
+<input type="text" th:field="*{phone}" class="form-control mb-4 col-4" placeholder="Phone Number">
+<input type="text" th:field="*{girl}" class="form-control mb-4 col-4" placeholder="Girl">
+<input type="text" th:field="*{time_start}" class="form-control mb-4 col-4" placeholder="Time Start">
+<input type="text" th:field="*{time_end}" class="form-control mb-4 col-4" placeholder="Time End">
+<input type="text" th:field="*{euro}" class="form-control mb-4 col-4" placeholder="Euro Income">
+<input type="text" th:field="*{dinar}" class="form-control mb-4 col-4" placeholder="Dinar Income">
+<input type="text" th:field="*{signature}" class="form-control mb-4 col-4" placeholder="Signature">
+<input type="text" th:field="*{on_duty}" class="form-control mb-4 col-4" placeholder="On Duty">
+
+
+<button type="submit" class="btn btn-info col-2">Save</button>
+
+</form>
+<hr>
+<a th:href="@{/users/list}">Back to Users List</a>
+
+</div>
+
+</body>
+
+
+</html>

@@ -22,8 +22,6 @@ public class UserDAOHibernateImpl implements UserDAO{
 		entityManager = theEntityManager;
 	}
 	
-	@Override
-	@Transactional
 	public List<User> findAll() {
 
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -33,22 +31,16 @@ public class UserDAOHibernateImpl implements UserDAO{
 		return users;
 	}
 	
-	@Override
-	@Transactional
 	public List<User> findByPhone(int phone) {
 
 		Session currentSession = entityManager.unwrap(Session.class);
-		Query<User> theQuery = currentSession.createQuery("from User where phone= :phone",User.class);
+		Query<User> theQuery = currentSession.createQuery("select u from User u where u.phone= :phone",User.class);
 		theQuery.setParameter("phone", phone);
-		//List<User> users = theQuery.getResultList();
 		List<User> users = theQuery.getResultList();
-		
 		
 		return users;
 	}
 
-
-	@Override
 	public User findById(int theId) {
 
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -57,8 +49,6 @@ public class UserDAOHibernateImpl implements UserDAO{
 		return theUser;
 	}
 
-
-	@Override
 	public void save(User theUser) {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -66,11 +56,10 @@ public class UserDAOHibernateImpl implements UserDAO{
 		
 	}
 
-	@Override
 	public void deleteById(int theId) {
 
 		Session currentSession = entityManager.unwrap(Session.class);
-		Query theQuery = currentSession.createQuery("delete from User where id=:userId");
+		Query theQuery = currentSession.createQuery("delete from User where id= :userId");
 		theQuery.setParameter("userId", theId);
 		theQuery.executeUpdate();
 		

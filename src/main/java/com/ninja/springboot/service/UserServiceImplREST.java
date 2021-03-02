@@ -19,35 +19,30 @@ public class UserServiceImplREST implements UserServiceREST {
 		userDAO = theUserDAO;
 	}
 
-	@Override
 	@Transactional
 	public List<User> findAll() {
 	
 		return userDAO.findAll();
 	}
 
-	@Override
 	@Transactional
 	public User findById(int theId) {
 
 		return userDAO.findById(theId);
 	}
 
-	@Override
 	@Transactional
 	public List<User> findByPhone(int phone) {
 		
 		return (List<User>) userDAO.findByPhone(phone);
 	}
 
-	@Override
 	@Transactional
 	public void save(User theUser) {
 		
 		userDAO.save(theUser);
 	}
 
-	@Override
 	@Transactional
 	public void deleteById(int theId) {
 		

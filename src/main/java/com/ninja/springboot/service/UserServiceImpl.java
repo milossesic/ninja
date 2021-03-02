@@ -20,13 +20,11 @@ public class UserServiceImpl implements UserService {
 		userRepository = theUserRepository;
 	}
 	
-	@Override
 	public List<User> findAll() {
 
 		return userRepository.findAllByOrderByDateDesc();
 	}
 	
-	@Override
 	public User findByPhone(int phone) {
 		User theUser = null;
 		User result = userRepository.findByPhone(phone);
@@ -40,7 +38,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 
-	@Override
 	public User findById(int theId) {
 
 		Optional<User> result = userRepository.findById(theId);
@@ -55,13 +52,11 @@ public class UserServiceImpl implements UserService {
 		return theUser;
 	}
 
-	@Override
 	public void save(User theUser) {
 		userRepository.save(theUser);
 		
 	}
 
-	@Override
 	public void deleteById(int theId) {
 		userRepository.deleteById(theId);
 		
